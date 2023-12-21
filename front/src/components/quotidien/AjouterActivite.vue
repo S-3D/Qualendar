@@ -3,7 +3,7 @@ import {ref} from 'vue'
 import { api } from 'src/boot/axios';
 import { storeToRefs } from 'pinia';
 import {useCalendarStore} from 'stores/calendarStore.js'
-
+import DialogAjout from '../DialogAjoutActivite.vue';
 
 const {dateSelectionnee , dateFormattee, jourSemaine, jourDuMois  } = storeToRefs(useCalendarStore())
 const payload = ref({
@@ -47,42 +47,7 @@ fetchListeActivites()
 
   </q-item>
 
-  <q-dialog v-model="toggleDialog" persistent >
-      <q-card style="min-width: 350px">
-        <q-bar>
-          <div>{{ dateFormattee }}</div>
-        <q-space />
-
-          <q-btn dense flat icon="close" v-close-popup>
-            <q-tooltip>Close</q-tooltip>
-          </q-btn>
-        </q-bar>
-
-
-        <q-card-section class="q-gutter-y-md">
-          <q-select
-            standout="bg-accent"
-            v-model="payload.Activite"
-            :options="optionsActivite"
-            option-label="nomActivite"
-            :option-value="id"
-            label="Activite"
-          />
-          <q-input
-            clearable
-            standout="bg-accent"
-            v-model="payload.duree"
-            type="time"
-            :hint=" `duree ${payload.duree}`"
-           />
-        </q-card-section>
-
-        <q-card-actions align="right" >
-          <q-btn flat icon="check" color="accent" @click="handleSubmit"  />
-        </q-card-actions>
-
-      </q-card>
-  </q-dialog>
+  <DialogAjout  v-model="toggleDialog" />
 
 
 </template>
