@@ -3,11 +3,11 @@ import { api } from 'src/boot/axios';
 import { storeToRefs } from 'pinia';
 import {useCalendarStore} from 'stores/calendarStore.js'
 import ActiviteUnitaire from './ActiviteUnitaire.vue';
-import { computed, ref, watch, watchEffect} from 'vue';
+import { ref, watch} from 'vue';
 import AjouterActivite from './AjouterActivite.vue';
 
 const store = useCalendarStore()
-const {dateSelectionnee , dateFormattee, jourSemaine, jourDuMois  } = storeToRefs(store)
+const {  dateFormattee, jourSemaine, jourDuMois  } = storeToRefs(store)
 const userId = 1
 const emit = defineEmits(['next', 'prev'])
 const listeActivitesDuJour = ref([])
@@ -28,9 +28,9 @@ watch(dateFormattee, ()=>fetchActivites(),
 <template>
   <q-card flat class="flex row " >
 
-    <q-card-section class="col-4 gt-xs  flex flex-center column">
-        <p class="text-body2 text-italic"> {{ jourSemaine }} </p>
-        <p class="text-h1" > {{ jourDuMois }} </p>
+    <q-card-section class="col-4 gt-xs  flex flex-center column text-primary">
+        <p class="text-body2 text-italic my-font" style="font-size: 1.5rem;" > {{ jourSemaine }} </p>
+        <p class="my-font "  style="font-size: 8rem;" > {{ jourDuMois }} </p>
     </q-card-section>
 
     <q-card-section class="col-8" >

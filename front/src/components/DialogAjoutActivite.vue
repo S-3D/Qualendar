@@ -37,7 +37,7 @@ const handleSubmit = () => {
             <q-card-section>
                 <q-img :src=illustration width="100%"  height="100px" >
                 </q-img>
-                <div class="text-h6 text-primary text-center q-py-md">  Nouvelle Activite </div>
+                <div class=" text-primary text-center q-py-md my-font" style="font-size: 1.5rem; font-weight: 800;">  Nouvelle Activite </div>
             </q-card-section>
 
             <q-card-section class="q-gutter-y-lg">
