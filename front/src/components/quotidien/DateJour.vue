@@ -57,7 +57,7 @@ const tableauActivites = [
 ]
 
 const fetchActivites = ()=>{
-  console.log("Fetch Activites")
+  console.log('Fetch Activite')
   api.get(`/quotidiens?date=${dateFormattee.value}&User.id=${userId}`)
   .then( res => listeActivitesDuJour.value = res.data['hydra:member'])
 }
@@ -70,14 +70,14 @@ watch(dateFormattee, ()=>fetchActivites(),
 </script>
 
 <template>
-  <q-card flat class=" flex row">
+  <q-card flat class="flex row" >
 
     <q-card-section class="col-3 gt-xs  flex flex-center column">
         <p class="text-body2 text-italic"> {{ jourSemaine }} </p>
         <p class="text-h1" > {{ jourDuMois }} </p>
     </q-card-section>
 
-    <q-card-section class="col-9 ">
+    <q-card-section class="col-9 " style="overflow-x: scroll;">
             <q-list separator>
               <q-item v-for="activite in listeActivitesDuJour" :key="activite.date">
                 <ActiviteUnitaire :activite=activite />
