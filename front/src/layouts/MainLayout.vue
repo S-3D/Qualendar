@@ -21,7 +21,7 @@
         <q-route-tab to="/quotidien" label="Quotidien" icon="sym_o_event_available" />
         <q-route-tab to="/mensuel" label=" Mensuel" icon="sym_o_date_range" />
         <q-route-tab to="/statistiques" label="statistiques" icon="sym_o_monitoring" />
-        <q-route-tab to="/configuration" label="Configuration" icon="sym_o_settings" />
+        <q-route-tab to="/parametres" label="parametres" icon="sym_o_settings" />
       </q-tabs>
     </q-header>
 
