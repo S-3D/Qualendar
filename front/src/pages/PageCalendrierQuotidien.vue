@@ -5,7 +5,7 @@ import DateJour from 'src/components/quotidien/DateJour.vue';
 
 <template>
   <q-page class="flex column flex-center">
-    <div class="container flex column ">
+    <div class="container flex column  shadow-2">
       <DatePicker class="col-3" />
       <q-separator inset />
       <DateJour class="col-8" />
@@ -20,7 +20,6 @@ import DateJour from 'src/components/quotidien/DateJour.vue';
   width: 60vw;
   min-width: 300px;
   height: 70vh;
-  border: 1px solid grey;
   border-radius: 10px;
 }
 </style>

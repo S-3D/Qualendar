@@ -4,9 +4,10 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: '', component: () => import('pages/IndexPage.vue') },
+      { path: '', redirect:'/quotidien' ,  component: () => import('pages/IndexPage.vue') },
+      { path: '/index',  component: () => import('pages/IndexPage.vue') },
       { path: '/quotidien',  component: () => import('pages/PageCalendrierQuotidien.vue') },
-      { path: '/hebdomadaire',  component: () => import('pages/CalendrierHebdomadaire.vue') },
+      { path: '/mensuel',  component: () => import('pages/CalendrierMensuel.vue') },
       { path: '/statistiques',  component: () => import('pages/Statistiques.vue') },
       { path: '/configuration',  component: () => import('pages/Configuration.vue') },
     ]

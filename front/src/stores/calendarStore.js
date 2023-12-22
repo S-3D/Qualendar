@@ -19,6 +19,7 @@ export const useCalendarStore = defineStore('calendar', {
     demain : (state)=> date.addToDate(state.today, { days: 1 } ),
     jourSemaine : (state) => date.formatDate( state.dateSelectionnee, "dddd", formatFrancais),
     jourDuMois :  (state) => date.formatDate( state.dateSelectionnee, "DD", formatFrancais),
+    numeroSemaine : (state) => date.formatDate( state.dateSelectionnee, "ww"),
 
   },
   actions: {

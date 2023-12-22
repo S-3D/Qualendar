@@ -5,7 +5,7 @@ import {useCalendarStore} from 'stores/calendarStore.js'
 
 
 const store = useCalendarStore()
-const {dateSelectionnee, demain } = storeToRefs(store)
+const {dateSelectionnee, demain, numeroSemaine } = storeToRefs(store)
 const disabledDates = ref([{ start: demain, end: null }])
 
 </script>
@@ -22,6 +22,10 @@ const disabledDates = ref([{ start: demain, end: null }])
     transparent
     :disabled-dates="disabledDates"
   >
+
+  <template #header-title	>
+    <p class="text-h5 my-font text-primary"> Semaine {{ numeroSemaine }} </p> 
+  </template>
     <template #header-prev-button	>
     </template>
     <template #nav-prev-button	>
