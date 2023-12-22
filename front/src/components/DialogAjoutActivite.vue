@@ -10,7 +10,8 @@ import InputHeures from "components/quotidien/InputHeures.vue"
 const activiteStore = useActiviteStore()
 const {activite} = storeToRefs(useActiviteStore())
 const {dateFormattee} = storeToRefs(useCalendarStore())
-const illustration = "https://images.unsplash.com/photo-1588680152893-a4b533646c6e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjE3fHxibGFrYyUyMGFuZCUyMHdoaXRlfGVufDB8MHwwfHx8MA%3D%3D"
+const illustration = '/stairs.jpg'
+// const illustration = "https://images.unsplash.com/photo-1588680152893-a4b533646c6e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjE3fHxibGFrYyUyMGFuZCUyMHdoaXRlfGVufDB8MHwwfHx8MA%3D%3D"
 const isMouseOver = ref(false)
 const mouseOverColor = computed( ()=>
   isMouseOver.value ? 'grey-6' : 'grey-3'
