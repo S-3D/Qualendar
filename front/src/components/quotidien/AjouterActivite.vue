@@ -41,7 +41,7 @@ fetchListeActivites()
       <q-icon name="sym_o_add_circle" color="grey-8" size="md" />
     </q-item-section>
 
-    <q-item-label header class="text-overline">
+    <q-item-label header class="text-overline ">
       Nouvelle activite
     </q-item-label>
 

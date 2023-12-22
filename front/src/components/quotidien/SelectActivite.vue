@@ -4,7 +4,7 @@ import { api } from 'src/boot/axios';
 import { storeToRefs } from 'pinia';
 import { useActiviteStore} from 'stores/activiteStore.js'
 
-const {activite} = storeToRefs(useActiviteStore())
+const {Activite} = storeToRefs(useActiviteStore())
 let optionsActivite =ref([])
 
 
@@ -25,10 +25,10 @@ const fetchListeActivites = () => {
   <q-select
     dense
     standout="bg-accent"
-    v-model="activite.Activite"
+    v-model="Activite"
     :options="optionsActivite"
     option-label="nomActivite"
-    :option-value="id"
+    option-value="id"
     options-cover
 
   >

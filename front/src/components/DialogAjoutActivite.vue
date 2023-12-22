@@ -7,9 +7,9 @@ import { useCalendarStore} from 'stores/calendarStore.js'
 import SelectActivite from 'components/quotidien/SelectActivite.vue'
 import InputHeures from "components/quotidien/InputHeures.vue"
 
-const calendarStore = useCalendarStore()
+const activiteStore = useActiviteStore()
 const {activite} = storeToRefs(useActiviteStore())
-const {dateFormattee} = storeToRefs(calendarStore)
+const {dateFormattee} = storeToRefs(useCalendarStore())
 const illustration = "https://images.unsplash.com/photo-1588680152893-a4b533646c6e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjE3fHxibGFrYyUyMGFuZCUyMHdoaXRlfGVufDB8MHwwfHx8MA%3D%3D"
 const isMouseOver = ref(false)
 const mouseOverColor = computed( ()=>
@@ -19,7 +19,7 @@ const mouseOverColor = computed( ()=>
 const handleSubmit = () => {
   activite.value.quotidien.date = dateFormattee.value
   api.post('/detail_quotidiens', activite.value)
-  .then( ()=>calendarStore.$reset() )
+  .then( ()=>activiteStore.$reset() )
 
 }
 
@@ -37,10 +37,10 @@ const handleSubmit = () => {
             <q-card-section>
                 <q-img :src=illustration width="100%"  height="100px" >
                 </q-img>
-                <div class="text-h6 text-primary text-center">  Nouvelle Activite </div>
+                <div class="text-h6 text-primary text-center q-py-md">  Nouvelle Activite </div>
             </q-card-section>
 
-            <q-card-section class="q-gutter-y-md">
+            <q-card-section class="q-gutter-y-lg">
               <SelectActivite />
               <InputHeures />
             </q-card-section>
