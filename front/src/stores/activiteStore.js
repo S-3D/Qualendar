@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 
 export const useActiviteStore = defineStore('activite', {
   state: () => ({
-    duree : 90,
+    duree: 90,
     User : {
       id : 1
     },
@@ -12,7 +12,7 @@ export const useActiviteStore = defineStore('activite', {
       id: 0,
       nomActivite : ''
     },
-    
+
   }),
   getters: {
      dureeEnHeures(data) {
@@ -20,20 +20,16 @@ export const useActiviteStore = defineStore('activite', {
       const heures = Math.floor(minutes / 60)
       const minutesRestantes = minutes % 60
       const heuresFormattees = String(heures).padStart(2, '0');
-      const minutesFormattees = String(minutesRestantes).padStart(2, '0'); 
+      const minutesFormattees = String(minutesRestantes).padStart(2, '0');
       return `${heuresFormattees}:${minutesFormattees}`;
   },
- 
+
 
 
   },
   actions: {
-    dureeEnMinutes(value) {
-      const [heures, minutes] = String(value).split(':').map(Number);
-      const totalMinutes = heures * 60 + minutes;
-      this.duree = totalMinutes
-  }
 
-    
+
+
   },
 });

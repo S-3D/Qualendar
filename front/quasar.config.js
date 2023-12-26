@@ -1,27 +1,9 @@
-/* eslint-env node */
-
-/*
- * This file runs in a Node context (it's NOT transpiled by Babel), so use only
- * the ES6 features that are supported by your Node version. https://node.green/
- */
-
-// Configuration for your app
-// https://v2.quasar.dev/quasar-cli-vite/quasar-config-js
-
-
 const { configure } = require('quasar/wrappers');
 
 
 module.exports = configure(function ( ctx ) {
   return {
 
-
-    // https://v2.quasar.dev/quasar-cli/prefetch-feature
-    // preFetch: true,
-
-    // app boot file (/src/boot)
-    // --> boot files are part of "main.js"
-    // https://v2.quasar.dev/quasar-cli/boot-files
     boot: [
       'axios',
       'vcalendar',
@@ -45,7 +27,7 @@ module.exports = configure(function ( ctx ) {
     build: {
       target: {
         browser: [ 'esnext' ],
-        node: 'node16'
+        node: 'node18'
       },
       env: {
         API: ctx.dev
@@ -53,28 +35,6 @@ module.exports = configure(function ( ctx ) {
           : 'https://prod.api.com'
       },
       vueRouterMode: 'hash', // available values: 'hash', 'history'
-      // vueRouterBase,
-      // vueDevtools,
-      // vueOptionsAPI: false,
-
-      // rebuildCache: true, // rebuilds Vite/linter/etc cache on startup
-
-      // publicPath: '/',
-      // analyze: true,
-      // env: {},
-      // rawDefine: {}
-      // ignorePublicFolder: true,
-      // minify: false,
-      // polyfillModulePreload: true,
-      // distDir
-
-      // extendViteConf (viteConf) {},
-      // viteVuePluginOptions: {},
-
-
-      // vitePlugins: [
-      //   [ 'package-name', { ..options.. } ]
-      // ]
     },
 
     // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#devServer

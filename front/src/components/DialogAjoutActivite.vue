@@ -8,8 +8,9 @@ import SelectActivite from 'components/quotidien/SelectActivite.vue'
 import InputHeures from "components/quotidien/InputHeures.vue"
 
 const activiteStore = useActiviteStore()
-const {activite} = storeToRefs(useActiviteStore())
-const {dateFormattee} = storeToRefs(useCalendarStore())
+const calendarStore = useCalendarStore()
+const {User, Activite, duree } = storeToRefs(activiteStore)
+const {dateFormattee} = storeToRefs(calendarStore)
 const illustration = '/stairs.jpg'
 const isMouseOver = ref(false)
 const mouseOverColor = computed( ()=>
@@ -17,9 +18,17 @@ const mouseOverColor = computed( ()=>
 )
 
 const handleSubmit = () => {
-  activite.value.quotidien.date = dateFormattee.value
-  api.post('/detail_quotidiens', activite.value)
+  const payload = {
+    quotidien : {
+      date : dateFormattee.value,
+      User : User.value,
+    },
+    Activite : Activite.value,
+    duree : duree.value
+  }
+  api.post('/detail_quotidiens', payload)
   .then( ()=>activiteStore.$reset() )
+  .then( ()=> calendarStore.hasChanged= !calendarStore.hasChanged )
 
 }
 
@@ -28,34 +37,33 @@ const handleSubmit = () => {
 
 <template>
 <q-dialog>
-        <q-card class="customCard  shadow-10 q-pa-sm flex column justify-between">
-          <q-bar class="bg-transparent">
+  <q-card class="customCard  shadow-10 q-pa-sm flex column justify-between">
+
+    <q-bar class="bg-transparent">
             <q-space />
             <q-btn dense flat round icon="lens" :ripple="false"  size="8.5px" :color="mouseOverColor" @mouseleave="isMouseOver=false"  @mouseover=" isMouseOver=true" v-close-popup />
-          </q-bar>
+    </q-bar>
 
-            <q-card-section>
+    <q-card-section>
                 <q-img :src=illustration width="100%"  height="100px" >
                 </q-img>
                 <div class=" text-primary text-center q-py-md my-font" style="font-size: 1.5rem; font-weight: 800;">  Nouvelle Activite </div>
-            </q-card-section>
+    </q-card-section>
 
-            <q-card-section class="q-gutter-y-lg">
-              <SelectActivite />
-              <InputHeures />
-            </q-card-section>
+    <q-card-section class="q-gutter-y-lg">
+      <SelectActivite />
+      <InputHeures />
+    </q-card-section>
 
-            <div>
-                <q-separator inset color="grey" />
-                <q-card-section class="flex justify-between">
-                    <q-btn unelevated label="Annuler" v-close-popup />
-                    <q-btn unelevated label="Ajouter" color="primary" @click="handleSubmit" v-close-popup  />
-                </q-card-section>
+    <div>
+    <q-separator inset color="grey" />
+    <q-card-section class="flex justify-between">
+        <q-btn unelevated label="Annuler" v-close-popup />
+        <q-btn unelevated label="Ajouter" color="secondary" @click="handleSubmit" v-close-popup  />
+    </q-card-section>
 
-            </div>
-
-
-        </q-card>
+    </div>
+  </q-card>
 </q-dialog>
 </template>
 

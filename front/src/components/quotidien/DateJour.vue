@@ -7,7 +7,7 @@ import { ref, watch} from 'vue';
 import AjouterActivite from './AjouterActivite.vue';
 
 const store = useCalendarStore()
-const {  dateFormattee, jourSemaine, jourDuMois  } = storeToRefs(store)
+const { dateFormattee, jourSemaine, jourDuMois, hasChanged  } = storeToRefs(store)
 const userId = 1
 const emit = defineEmits(['next', 'prev'])
 const listeActivitesDuJour = ref([])
@@ -20,7 +20,7 @@ const fetchActivites = ()=>{
 fetchActivites()
 
 
-watch(dateFormattee, ()=>fetchActivites(),
+watch([dateFormattee, hasChanged ], ()=>fetchActivites(),
  )
 
 </script>
@@ -28,14 +28,14 @@ watch(dateFormattee, ()=>fetchActivites(),
 <template>
   <q-card flat class="flex row " >
 
-    <q-card-section class="col-4 gt-xs  flex flex-center column text-primary">
+    <q-card-section class="col-4 gt-xs  flex flex-center column text-secondary">
         <p class="text-body2 text-italic my-font" style="font-size: 1.5rem;" > {{ jourSemaine }} </p>
         <p class="my-font "  style="font-size: 8rem;" > {{ jourDuMois }} </p>
     </q-card-section>
 
     <q-card-section class="col-8" >
-      <q-scroll-area  
-        style="height: 100%; width: auto"  
+      <q-scroll-area
+        style="height: 100%; width: auto"
         :bar-style="{ background: 'transparent',  }"
         :thumb-style="{ width: '3px' }"
 >
@@ -49,7 +49,7 @@ watch(dateFormattee, ()=>fetchActivites(),
 
               </q-item>
 
-              
+
             </q-list>
           </q-scroll-area>
 
@@ -57,3 +57,8 @@ watch(dateFormattee, ()=>fetchActivites(),
 
   </q-card>
 </template>
+
+
+<style scoped>
+
+</style>

@@ -12,7 +12,8 @@ const formatFrancais =
 export const useCalendarStore = defineStore('calendar', {
   state: () => ({
     dateSelectionnee: new Date(),
-    today : new Date()
+    today : new Date(),
+    hasChanged : false,
   }),
   getters: {
     dateFormattee :  (state) => date.formatDate( state.dateSelectionnee, "YYYY-MM-DD" ),

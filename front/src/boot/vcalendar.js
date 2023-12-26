@@ -8,4 +8,3 @@ export default ({ app, router, store }) => {
     firstdayofweek : 2n
   })
 }
-

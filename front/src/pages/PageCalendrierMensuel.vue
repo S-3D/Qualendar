@@ -13,8 +13,6 @@ import InterfaceMensuel from 'src/components/mensuel/InterfaceMensuel.vue'
       <CalendrierMensuel />
       <InterfaceMensuel />
     </div>
-
-
   </q-page>
 </template>
 
@@ -27,4 +25,7 @@ import InterfaceMensuel from 'src/components/mensuel/InterfaceMensuel.vue'
   /* border: 1px solid grey;
   border-radius: 10px; */
 }
+
+
 </style>
+

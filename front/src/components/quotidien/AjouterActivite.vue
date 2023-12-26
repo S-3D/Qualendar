@@ -36,18 +36,12 @@ fetchListeActivites()
 </script>
 
 <template>
-  <q-item clickable class="bg-grey-1 fit flex flex-center" @click="toggleDialog = true">
-    <q-item-section avatar>
-      <q-icon name="sym_o_add_circle" color="grey-8" size="md" />
-    </q-item-section>
 
-    <q-item-label header class="text-overline ">
-      Nouvelle activite
-    </q-item-label>
+<q-page-sticky position="bottom-right" :offset="[18, 18]">
+  <q-btn fab icon="add" label="Ajouter" color="secondary" @click="toggleDialog=true" />
+</q-page-sticky>
 
-  </q-item>
-
-  <DialogAjout  v-model="toggleDialog" />
+<DialogAjout  v-model="toggleDialog" />
 
 
 </template>

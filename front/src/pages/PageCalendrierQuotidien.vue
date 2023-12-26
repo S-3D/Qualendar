@@ -4,11 +4,13 @@ import DateJour from 'src/components/quotidien/DateJour.vue';
 </script>
 
 <template>
-  <q-page class="flex column flex-center">
-    <div class="container flex column  shadow-2">
+  <q-page class="flex column flex-center ">
+    <q-img class="bg" src="depth.jpg" fit="cover"  />
+
+    <div class="container shadow-2 flex column bg-transparent" >
       <DatePicker class="col-3" />
-      <q-separator inset />
-      <DateJour class="col-8" />
+      <q-separator inset  />
+      <DateJour class="col-grow" />
     </div>
 
   </q-page>
@@ -20,6 +22,6 @@ import DateJour from 'src/components/quotidien/DateJour.vue';
   width: 60vw;
   min-width: 300px;
   height: 70vh;
-  border-radius: 10px;
 }
+
 </style>

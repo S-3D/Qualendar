@@ -3,48 +3,41 @@ import { ref } from 'vue';
 import { storeToRefs } from 'pinia';
 import { useCalendarStore} from 'stores/calendarStore.js'
 
+const { dateSelectionnee,  today } = storeToRefs(useCalendarStore())
 
-
-const { dateSelectionnee,  demain } = storeToRefs(useCalendarStore())
-
-const disabledDates = ref([{ start: demain, end: null }])
+const disabledDates = ref([
+  {
+    repeat: {
+      weekdays: [7, 1],
+    },
+  },
+  ])
 
 </script>
 
-
-
 <template>
-
-<VDatePicker 
-  v-model="dateSelectionnee" 
-  mode="date" 
+<VDatePicker
+  v-model="dateSelectionnee"
+  mode="date"
   borderless
   expanded
   transparent
+  :max-date="today"
+  is-required
   :disabled-dates="disabledDates"
 >
+
 <template #header-title="{title}"	>
-  <p class="text-h4 my-font text-primary"> {{ title }} </p> 
+  <p class="text-h4 my-font text-primary"> {{ title }} </p>
 </template>
 
 </VDatePicker>
 
+</template>
 
-  </template>
-  
 
 <style>
 .vc-blue {
-  --vc-accent-300: #3B4252;
-  --vc-accent-400: #3B4252;
-  --vc-accent-500: #3B4252;
-  --vc-accent-600: #3B4252;
-  --vc-accent-700: #3B4252;
-  --vc-accent-800: #3B4252;
-  --vc-accent-900: #3B4252;
+  --vc-accent-600: #4C566A;
 }
-
-
-
-
 </style>

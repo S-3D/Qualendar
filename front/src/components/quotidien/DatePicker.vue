@@ -5,9 +5,14 @@ import {useCalendarStore} from 'stores/calendarStore.js'
 
 
 const store = useCalendarStore()
-const {dateSelectionnee, demain, numeroSemaine } = storeToRefs(store)
-const disabledDates = ref([{ start: demain, end: null }])
-
+const {dateSelectionnee, today, numeroSemaine } = storeToRefs(store)
+const disabledDates = ref([
+  {
+    repeat: {
+      weekdays: [7, 1],
+    },
+  },
+  ])
 </script>
 
 <template>
@@ -19,34 +24,35 @@ const disabledDates = ref([{ start: demain, end: null }])
     view="weekly"
     borderless
     expanded
-    transparent
+    :max-date=today
+    is-required
     :disabled-dates="disabledDates"
+    style="border-radius: 10px;"
   >
 
   <template #header-title	>
-    <p class="text-h5 my-font text-primary"> Semaine {{ numeroSemaine }} </p> 
+    <p class="text-h5 my-font text-primary"> Semaine {{ numeroSemaine }} </p>
   </template>
-    <template #header-prev-button	>
-    </template>
-    <template #nav-prev-button	>
-    </template>
-    <template #header-next-button	>
-    </template>
-    <template #nav-next-button	>
-    </template>
+
+  <template #header-prev-button	>
+  </template>
+
+  <template #nav-prev-button	>
+  </template>
+
+  <template #header-next-button	>
+  </template>
+
+  <template #nav-next-button	>
+  </template>
+
   </VDatePicker>
+
+
 </template>
 
 <style>
 .vc-blue {
-  --vc-accent-300: #3B4252;
-  --vc-accent-400: #3B4252;
-  --vc-accent-500: #3B4252;
-  --vc-accent-600: #3B4252;
-  --vc-accent-700: #3B4252;
-  --vc-accent-800: #3B4252;
-  --vc-accent-900: #3B4252;
+  --vc-accent-600: #4C566A;
 }
-
-
 </style>
