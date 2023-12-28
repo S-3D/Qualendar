@@ -1,6 +1,7 @@
 <script setup>
 import DatePicker from 'components/quotidien/DatePicker.vue'
 import PanelQuotidien from 'src/components/quotidien/PanelQuotidien.vue';
+import AddActivityBtn from 'src/components/quotidien/AddActivityBtn.vue';
 </script>
 
 <template>
@@ -11,6 +12,8 @@ import PanelQuotidien from 'src/components/quotidien/PanelQuotidien.vue';
       <DatePicker class="col-3" />
       <q-separator inset  />
       <PanelQuotidien class="col-grow" />
+      <AddActivityBtn />
+
     </div>
 
   </q-page>
@@ -23,5 +26,4 @@ import PanelQuotidien from 'src/components/quotidien/PanelQuotidien.vue';
   min-width: 300px;
   height: 70vh;
 }
-
 </style>

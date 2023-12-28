@@ -1,49 +1,32 @@
 <script setup>
 import {ref} from 'vue'
 import { api } from 'src/boot/axios';
-import { storeToRefs } from 'pinia';
-import {useCalendarStore} from 'stores/calendarStore.js'
 import DialogAjout from '../DialogAjoutActivite.vue';
 
-const {dateFormattee  } = storeToRefs(useCalendarStore())
 const optionsActivite = ref([])
 const toggleDialog = ref(false)
-// const payload = ref({
-//   quotidien :{
-//     date : dateFormattee.value,
-//     User :{
-//       id:1
-//     },
-//   },
-//   Activite : {
-//     id :0
-//   },
-//  duree : "01.30",
-// })
 
-
-// const handleSubmit = ()=>{
-//   payload.value.duree = parseFloat(payload.value.duree)
-//   console.log(payload.value)
-//   api.post('/detail_quotidiens', payload.value)
-//   toggleDialog.value = false
-// }
 
 const fetchListeActivites = ()=>{
   api.get('/activites.json')
   .then( res =>  optionsActivite.value = res.data  )
 }
-
 fetchListeActivites()
+
 </script>
 
 <template>
 
-<q-page-sticky position="bottom-right" :offset="[150, 68]">
-  <q-btn fab icon="add" label="Ajouter" color="secondary" @click="toggleDialog=true" />
+<q-page-sticky position="bottom-right" class="lt-sm"  :offset="[150, 100]">
+  <q-btn fab icon="add" class="lt-sm"  color="secondary" @click="toggleDialog=true" />
+  <q-btn fab icon="add" class="gt-xs"  label="Ajouter" color="secondary" @click="toggleDialog=true" />
+</q-page-sticky>
+
+<q-page-sticky position="bottom-right" class="gt-xs"  :offset="[320, 100]">
+  <q-btn fab icon="add" class="lt-sm"  color="secondary" @click="toggleDialog=true" />
+  <q-btn fab icon="add" class="gt-xs"  label="Ajouter" color="secondary" @click="toggleDialog=true" />
 </q-page-sticky>
 
 <DialogAjout v-model="toggleDialog" />
-
 
 </template>

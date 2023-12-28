@@ -1,5 +1,4 @@
 <script setup>
-
 import CalendrierMensuel from 'src/components/mensuel/CalendrierMensuel.vue';
 import InterfaceMensuel from 'src/components/mensuel/InterfaceMensuel.vue'
 

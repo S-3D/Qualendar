@@ -2,7 +2,7 @@
 import { storeToRefs } from 'pinia';
 import {useCalendarStore} from 'stores/calendarStore.js'
 
-const { dateFormattee, jourSemaine, jourDuMois, listHasChanged  } = storeToRefs(useCalendarStore())
+const { jourSemaine, jourDuMois } = storeToRefs(useCalendarStore())
 </script>
 
 <template>
