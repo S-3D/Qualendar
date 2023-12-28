@@ -1,6 +1,6 @@
 <script setup>
 import DatePicker from 'components/quotidien/DatePicker.vue'
-import DateJour from 'src/components/quotidien/DateJour.vue';
+import PanelQuotidien from 'src/components/quotidien/PanelQuotidien.vue';
 </script>
 
 <template>
@@ -10,7 +10,7 @@ import DateJour from 'src/components/quotidien/DateJour.vue';
     <div class="container shadow-2 flex column bg-transparent" >
       <DatePicker class="col-3" />
       <q-separator inset  />
-      <DateJour class="col-grow" />
+      <PanelQuotidien class="col-grow" />
     </div>
 
   </q-page>

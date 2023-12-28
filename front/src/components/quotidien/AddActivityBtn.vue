@@ -5,43 +5,45 @@ import { storeToRefs } from 'pinia';
 import {useCalendarStore} from 'stores/calendarStore.js'
 import DialogAjout from '../DialogAjoutActivite.vue';
 
-const {dateSelectionnee , dateFormattee, jourSemaine, jourDuMois  } = storeToRefs(useCalendarStore())
-const payload = ref({
-  quotidien :{
-    date : dateFormattee.value,
-    User :{
-      id:1
-    },
-  },
-  Activite : {
-    id :0
-  },
- duree : "01.30",
-})
+const {dateFormattee  } = storeToRefs(useCalendarStore())
 const optionsActivite = ref([])
 const toggleDialog = ref(false)
+// const payload = ref({
+//   quotidien :{
+//     date : dateFormattee.value,
+//     User :{
+//       id:1
+//     },
+//   },
+//   Activite : {
+//     id :0
+//   },
+//  duree : "01.30",
+// })
 
-const handleSubmit = ()=>{
-  payload.value.duree = parseFloat(payload.value.duree)
-  console.log(payload.value)
-  api.post('/detail_quotidiens', payload.value)
-  toggleDialog.value = false
-}
+
+// const handleSubmit = ()=>{
+//   payload.value.duree = parseFloat(payload.value.duree)
+//   console.log(payload.value)
+//   api.post('/detail_quotidiens', payload.value)
+//   toggleDialog.value = false
+// }
 
 const fetchListeActivites = ()=>{
   api.get('/activites.json')
   .then( res =>  optionsActivite.value = res.data  )
 }
+
 fetchListeActivites()
 </script>
 
 <template>
 
-<q-page-sticky position="bottom-right" :offset="[18, 18]">
+<q-page-sticky position="bottom-right" :offset="[150, 68]">
   <q-btn fab icon="add" label="Ajouter" color="secondary" @click="toggleDialog=true" />
 </q-page-sticky>
 
-<DialogAjout  v-model="toggleDialog" />
+<DialogAjout v-model="toggleDialog" />
 
 
 </template>

@@ -80,16 +80,29 @@ DetailQuotidien
 );
 
 
+---
 
-Modele de POST
+User 
+ UserID
+ Nom
+ Prenom
 
-const data = {
-  UtilisateurID: 1,
-  date: '2023-12-14',
-  activities: [
-    { ActiviteID: 1, ProjetID: 1, timeSpent: 2 },
-    { ActiviteID: 2, ProjetID: 1, timeSpent: 2 },
-    { ActiviteID: 3, ProjetID: 3, timeSpent: 2 },
-  ],
-};
+Activites
+ ActiviteID
+ Nom
+ Description
+ Couleur
+ Logo
 
+DetailQuotidien 
+ DetailID
+ UserID
+ ActiviteID
+ Date
+ Duree
+
+UserQuotidien
+ UserID
+ Date
+ DetailID
+  
